@@ -1,3 +1,5 @@
+import org.gradle.api.artifacts.dsl.DependencyHandler
+
 object Dependencies {
     object Jetpack {
         const val core = "androidx.core:core-ktx:${Versions.jetpackCore}"
@@ -27,11 +29,14 @@ object Dependencies {
         const val material = "androidx.compose.material:material:${Versions.Compose.core}"
         const val animation = "androidx.compose.animation:animation:${Versions.Compose.core}"
         const val uiTooling = "androidx.compose.ui:ui-tooling:${Versions.Compose.core}"
+        const val uiToolingPreview =
+            "androidx.compose.ui:ui-tooling-preview:${Versions.Compose.core}"
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout-compose:${Versions.Compose.constraintLayout}"
         const val lifecycleViewModel =
             "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.Compose.lifecycle}"
-        const val junit = "androidx.compose.ui:ui-test-junit4:${Versions.Compose.core}"
+        const val uiTestJunit = "androidx.compose.ui:ui-test-junit4:${Versions.Compose.core}"
+        const val uiTestManifest = "androidx.compose.ui:ui-test-manifest:${Versions.Compose.core}"
         const val MaterialThemeAdapter =
             "com.google.android.material:compose-theme-adapter:${Versions.Compose.materialThemeAdapter}"
         const val coil = "io.coil-kt:coil-compose:${Versions.Compose.coil}"
@@ -181,4 +186,20 @@ object Dependencies {
         const val paging3 =
             "com.squareup.sqldelight:android-paging3-extensions:${Versions.sqlDelight}"
     }
+}
+
+fun DependencyHandler.baseApplicationDependencies() {
+    add("implementation", Dependencies.Jetpack.core)
+    add("implementation", Dependencies.Jetpack.lifeCycle)
+    add("implementation", Dependencies.JetpackCompose.ui)
+    add("implementation", Dependencies.JetpackCompose.material)
+    add("implementation", Dependencies.JetpackCompose.uiToolingPreview)
+    add("implementation", Dependencies.JetpackCompose.activity)
+
+    add("testImplementation", Dependencies.Test.junit)
+    add("androidTestImplementation", Dependencies.Test.junitExt)
+    add("androidTestImplementation", Dependencies.Test.espresso)
+    add("androidTestImplementation", Dependencies.Test.composeUi)
+    add("debugImplementation", Dependencies.JetpackCompose.uiTooling)
+    add("debugImplementation", Dependencies.JetpackCompose.uiTestManifest)
 }

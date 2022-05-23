@@ -1,6 +1,6 @@
 object Versions {
     object Compose {
-        const val core = "1.1.1"
+        const val core = "1.2.0-beta02"
         const val activity = "1.4.0"
         const val lifecycle = "2.5.0-alpha01"
         const val constraintLayout = "1.0.0"

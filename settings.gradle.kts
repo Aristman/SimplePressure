@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -13,5 +15,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Simple Pressure"
-include ':app'
-include ':core'
+include(":app")
+include(":core")
