@@ -196,6 +196,8 @@ fun DependencyHandler.baseApplicationDependencies() {
     add("implementation", Dependencies.JetpackCompose.uiToolingPreview)
     add("implementation", Dependencies.JetpackCompose.activity)
 
+    add("implementation", Dependencies.JetpackCompose.Voyager.core)
+
     add("testImplementation", Dependencies.Test.junit)
     add("androidTestImplementation", Dependencies.Test.junitExt)
     add("androidTestImplementation", Dependencies.Test.espresso)
