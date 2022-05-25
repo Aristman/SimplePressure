@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Simple Pressure</string>
+    <string name="pressure_beetwen_char">/</string>
+    <string name="pressure">Давление</string>
+    <string name="pulse">Пульс</string>
+    <string name="add">Добавить</string>
 </resources>
