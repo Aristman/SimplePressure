@@ -25,8 +25,10 @@ object Versions {
     }
 
     object FireBase {
-        const val core = "29.3.0"
+        const val core = "30.0.2"
         const val messaging = "23.0.2"
+        const val storage = "20.0.1"
+        const val firestore = "24.1.2"
         const val analytics = "20.1.2"
     }
 

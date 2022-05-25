@@ -3,6 +3,7 @@ plugins {
     id("dagger.hilt.android.plugin")
     kotlin("android")
     kotlin("kapt")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -56,4 +57,7 @@ dependencies {
     implementation(Dependencies.JetpackCompose.lifecycleViewModel)
     implementation(Dependencies.Dagger.hilt)
     kapt(Dependencies.Dagger.hiltCompiler)
+    implementation(Dependencies.Google.FireBase.core)
+    implementation(Dependencies.Google.FireBase.analytics)
+    implementation(Dependencies.Google.FireBase.firestore)
 }

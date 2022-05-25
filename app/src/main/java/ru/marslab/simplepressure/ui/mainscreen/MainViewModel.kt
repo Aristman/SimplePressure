@@ -1,6 +1,5 @@
 package ru.marslab.simplepressure.ui.mainscreen
 
-import android.util.Log
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
@@ -32,8 +31,7 @@ class MainViewModel @Inject constructor(
                     data.map { it.toUi() }
                 }
                 .collect {
-                    Log.d("TAG", "$it: ")
-                    reduceState { state.value.copy(data = it) }
+                    reduceState { state.value.copy(data = it.groupBy { it.date }) }
                 }
         }
     }
