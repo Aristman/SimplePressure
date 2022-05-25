@@ -34,9 +34,9 @@ abstract class BaseViewModel<ST, EV : Event, AC : Action>(initState: ST) : ViewM
     val event: Flow<EV?>
         get() = _event.receiveAsFlow()
 
-    private var _navigator: Navigator? = null
-    val navigator: Navigator
-        get() = checkNotNull(_navigator)
+    var navigator: Navigator? = null
+        private set
+        get() = checkNotNull(field)
 
     init {
         this.action
@@ -44,23 +44,35 @@ abstract class BaseViewModel<ST, EV : Event, AC : Action>(initState: ST) : ViewM
             .stateIn(viewModelScope, SharingStarted.Eagerly, initState)
     }
 
-    fun setNavigator(navigator: Navigator) {
-        this._navigator = navigator
+    protected fun collectWidgetsActions(vararg widgets: BaseWidgetModel<*>) {
+        widgets.forEach { widget ->
+            launch {
+                widget.action.collect { widgetAction ->
+                    (widgetAction as? AC)?.let {
+                        sendAction(it)
+                    }
+                }
+            }
+        }
     }
 
-    fun sendAction(action: AC) {
+    fun setNavigator(navigator: Navigator) {
+        this.navigator = navigator
+    }
+
+    infix fun sendAction(action: AC) {
         launch {
             this@BaseViewModel.action.emit(action)
         }
     }
 
     fun popUp() {
-        navigator.pop()
+        navigator?.pop()
     }
 
     protected fun launch(block: suspend CoroutineScope.() -> Unit) {
         viewModelScope.launch {
-            block.invoke(this)
+            block(this)
         }
     }
 

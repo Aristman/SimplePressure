@@ -123,6 +123,10 @@ object Dependencies {
             const val core = "com.google.firebase:firebase-bom:${Versions.FireBase.core}"
             const val messaging =
                 "com.google.firebase:firebase-messaging-ktx:${Versions.FireBase.messaging}"
+            const val storage =
+                "com.google.firebase:firebase-storage-ktx:${Versions.FireBase.storage}"
+            const val firestore =
+                "com.google.firebase:firebase-firestore-ktx:${Versions.FireBase.firestore}"
             const val analytics =
                 "com.google.firebase:firebase-analytics-ktx:${Versions.FireBase.analytics}"
         }

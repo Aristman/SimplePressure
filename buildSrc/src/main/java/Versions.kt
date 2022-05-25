@@ -25,8 +25,10 @@ object Versions {
     }
 
     object FireBase {
-        const val core = "29.3.0"
+        const val core = "30.0.2"
         const val messaging = "23.0.2"
+        const val storage = "20.0.1"
+        const val firestore = "24.1.2"
         const val analytics = "20.1.2"
     }
 
@@ -36,7 +38,7 @@ object Versions {
     }
 
     const val gradle = "7.2.0"
-    const val kotlin = "1.6.10"
+    const val kotlin = "1.6.21"
     const val kotlinSerialization = "1.3.0"
     const val kotlinCoroutines = "1.6.0-native-mt"
     const val secretGradlePlugin = "2.0.1"
@@ -46,7 +48,7 @@ object Versions {
     const val lifeCycle = "2.5.0-alpha01"
     const val material = "1.5.0"
     const val constraintLayout = "2.1.3"
-    const val hilt = "2.41"
+    const val hilt = "2.42"
     const val retrofit = "2.9.0"
     const val okHttp = "5.0.0-alpha.4"
     const val navigation = "2.4.0"
